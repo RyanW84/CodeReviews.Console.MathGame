@@ -3,7 +3,7 @@
     public class ScoreKeeper
     {
         public static List<int> scoreList = new List<int>();
-        public static int totalScore = 0;
+        public static int totalScore;
 
         internal static void TotalScore(string optionChosen)
         {

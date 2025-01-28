@@ -19,7 +19,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        MathGame.MenuSystem.intro();
+        MathGame.MenuSystem.Intro();
         MathGame.MenuSystem.Menu();
     }
 }

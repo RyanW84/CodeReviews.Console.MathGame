@@ -8,7 +8,7 @@ internal class MenuSystem
     public static string optionChosen = "";
     public static string divider = "*********************************";
 
-    public static void intro()
+    public static void Intro()
     {
         int difficultyMode = 0;
 
@@ -91,7 +91,6 @@ internal class MenuSystem
                     MathGame.GameLogic.Arithmetic(optionChosen);
                     break;
                 case "E":
-                    Random randomGame = new Random();
                     optionChosen = "Random";
                     MathGame.GameLogic.Arithmetic(optionChosen);
                     break;
