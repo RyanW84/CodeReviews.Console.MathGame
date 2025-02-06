@@ -13,6 +13,5 @@ internal class Program
         MenuSystem.GetName();
         MenuSystem.GetDifficulty();
         MenuSystem.GetOperator();
-        //MathGame.RyanW84.GameLogic.Arithmetic(difficulty, menuOperator);
     }
 }

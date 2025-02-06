@@ -1,7 +1,3 @@
-using System.Diagnostics.Contracts;
-using System.Globalization;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Cryptography.X509Certificates;
 using MathGame.RyanW84;
 using static MathGame.RyanW84.DifficultyEnum;
 using static MathGame.RyanW84.GameLogic;
@@ -39,10 +35,10 @@ internal class MenuSystem
     public static bool showMenu = true;
     public static string optionChosen = "";
     public static string divider = "***********************************";
-    public static int difficultyInput = 0;
-    public static int menuInput = 0;
+    public static int difficultyInput;
+    public static int menuInput;
     public static string name;
-    public static bool difficultyChosen = false;
+    public static bool difficultyChosen;
     public static string dateTimeStamp = DateTime.Now.ToString();
     public static DifficultyEnum.Difficulty difficulty;
     public static MenuEnum.Operator menuOperator;
