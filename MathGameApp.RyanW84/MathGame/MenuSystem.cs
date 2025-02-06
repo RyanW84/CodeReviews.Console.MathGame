@@ -24,7 +24,8 @@ public static class MenuEnum
         Multiplication = 3,
         Division = 4,
         Random = 5,
-        Exit = 6,
+        Score = 6,
+        Exit = 7,
     }
 }
 
@@ -35,13 +36,13 @@ internal class MenuSystem
     public static bool showMenu = true;
     public static string optionChosen = "";
     public static string divider = "***********************************";
-    public static int difficultyInput;
-    public static int menuInput;
     public static string name;
     public static bool difficultyChosen;
     public static string dateTimeStamp = DateTime.Now.ToString();
     public static DifficultyEnum.Difficulty difficulty;
     public static MenuEnum.Operator menuOperator;
+    public static string difficultyInput;
+    public static string menuInput;
 
     public static void Intro()
     {
@@ -71,9 +72,12 @@ internal class MenuSystem
                 {
                     Console.WriteLine($"{value} {(int)value}");
                 }
+
+                difficultyInput = Console.ReadLine();
+
                 if (
                     Enum.TryParse<DifficultyEnum.Difficulty>(
-                        Console.ReadLine(),
+                        difficultyInput,
                         out DifficultyEnum.Difficulty difficultyParsed
                     )
                 )
@@ -98,10 +102,10 @@ internal class MenuSystem
             {
                 Console.WriteLine($"{value} {(int)value}");
             }
-
+            menuInput = Console.ReadLine();
             if (
                 Enum.TryParse<MenuEnum.Operator>(
-                    Console.ReadLine(),
+                    menuInput,
                     out MenuEnum.Operator menuOperatorParsed
                 )
             )

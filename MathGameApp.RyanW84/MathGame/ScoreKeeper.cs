@@ -1,27 +1,32 @@
-namespace MathGame.RyanW84
+using static MathGame.RyanW84.DifficultyEnum;
+using static MathGame.RyanW84.GameLogic;
+using static MathGame.RyanW84.MenuEnum;
+using static MathGame.RyanW84.MenuSystem;
+
+namespace MathGame.RyanW84;
+
+public class ScoreKeeper
 {
-    public class ScoreKeeper
+    public static List<int> scoreList = new List<int>();
+    public static int totalScore;
+
+    public static void TotalScore(Operator menuOperator)
     {
-        public static List<int> scoreList = new List<int>();
-        public static int totalScore;
+        string divider = "\t*********************************";
 
-        internal static void TotalScore(string optionChosen)
-        {
-            string divider = "\t*********************************";
+        Console.Clear();
+        Console.WriteLine(divider);
+        Console.WriteLine($"\t\t{menuOperator}");
+        Console.WriteLine(divider);
 
-            Console.Clear();
-            Console.WriteLine(divider);
-            Console.WriteLine($"\t\t{optionChosen}");
-            Console.WriteLine(divider);
+        totalScore = scoreList.Sum();
 
-            totalScore = scoreList.Sum();
+        Console.WriteLine();
+        Console.WriteLine($"The total score is {totalScore}");
 
-            Console.WriteLine();
-            Console.WriteLine($"The total score is {totalScore}");
-
-            Console.WriteLine("\nPress any key to return to the Menu");
-            Console.ReadLine();
-            Console.Clear();
-        }
+        Console.WriteLine("\nPress any key to return to the Menu");
+        Console.ReadLine();
+        Console.Clear();
+        GetOperator();
     }
 }

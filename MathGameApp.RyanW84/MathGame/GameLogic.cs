@@ -11,11 +11,13 @@ public class GameLogic()
         Random random = new Random();
         int sum = 0;
         bool correctAnswer = false;
+        bool exitGame = false;
         string escapeToMenu = "";
         char arithmeticOperator = ' ';
         int x = 0;
         int y = 0;
         int sumInput = 0;
+        Random randomEnum = new Random();
 
         switch (difficulty)
         {
@@ -52,33 +54,63 @@ public class GameLogic()
                 break;
             case MenuEnum.Operator.Subtraction:
                 arithmeticOperator = '-';
+                x = random.Next(0, xMaxValue);
+                y = random.Next(0, yMaxValue);
                 sum = x - y;
                 break;
             case MenuEnum.Operator.Multiplication:
                 arithmeticOperator = '*';
+                x = random.Next(0, xMaxValue);
+                y = random.Next(0, yMaxValue);
                 sum = x * y;
                 break;
             case MenuEnum.Operator.Division:
+                bool zeroCheck = false;
                 arithmeticOperator = '/';
-                do // only select random numbers that generate a whole number result on division
+
+                while (!zeroCheck) // only select random numbers that generate a whole number result on division
                 {
                     x = random.Next(0, MenuSystem.xMaxValue);
                     y = random.Next(0, MenuSystem.yMaxValue);
-                    if (y > x)
-                    {
-                        (x, y) = (y, x);
-                    }
-
                     if (y == 0 || x == 0)
                     {
                         x = random.Next(0, MenuSystem.xMaxValue);
                         y = random.Next(0, MenuSystem.yMaxValue);
                     }
-                } while (x % y == 0);
+                    if (y > x)
+                    {
+                        (x, y) = (y, x);
+                    }
+
+                    zeroCheck = true;
+                }
                 sum = x / y;
                 break;
+            case MenuEnum.Operator.Random:
+                Console.Clear();
+                Console.WriteLine("Randomly choosing a Maths challenge"); // working on random selection
+                int randomChooser = randomEnum.Next(1, 4);
+                menuOperator = (Operator)randomChooser;
+                exitGame = true;
+                Arithmetic(difficulty, menuOperator);
+                break;
+            case MenuEnum.Operator.Score:
+                ScoreKeeper.TotalScore(menuOperator);
+                correctAnswer = true;
+                showMenu = true;
+                break;
+            case MenuEnum.Operator.Exit:
+                Console.Clear();
+                Console.WriteLine("Thank you for playing");
+                exitGame = true;
+                break;
+            default:
+                Console.WriteLine("Please enter a valid input");
+                showMenu = true;
+                GetOperator();
+                break;
         }
-        do
+        while (exitGame == false && correctAnswer == false)
         {
             Console.Clear();
             Console.WriteLine(divider);
@@ -90,14 +122,15 @@ public class GameLogic()
             {
                 Console.WriteLine("\nWrong answer, new question chosen");
                 MathGame.RyanW84.ScoreKeeper.scoreList.Add(-1);
+                correctAnswer = false;
 
                 Console.Write("\nIf you would prefer to exit to the menu, please enter M now: ");
                 escapeToMenu = Console.ReadLine().Trim().ToUpper();
 
                 if (escapeToMenu == "M")
                 {
+                    correctAnswer = true;
                     showMenu = true;
-                    menuOperator = 0;
                     MathGame.RyanW84.MenuSystem.GetOperator();
                 }
             }
@@ -107,9 +140,8 @@ public class GameLogic()
                 correctAnswer = true;
                 MathGame.RyanW84.ScoreKeeper.scoreList.Add(1);
                 showMenu = true;
-                menuOperator = 0;
-                MathGame.RyanW84.MenuSystem.GetOperator();
+                MathGame.RyanW84.MenuSystem.GetOperator(); // figure out how to exit after menuOperator
             }
-        } while (correctAnswer == false);
+        }
     }
 }
