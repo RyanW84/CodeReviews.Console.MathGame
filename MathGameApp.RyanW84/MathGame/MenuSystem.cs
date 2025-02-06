@@ -78,11 +78,12 @@ internal class MenuSystem
                 if (
                     Enum.TryParse<DifficultyEnum.Difficulty>(
                         Console.ReadLine(),
-                        out DifficultyEnum.Difficulty difficulty
+                        out DifficultyEnum.Difficulty difficultyParsed
                     )
                 )
                 {
                     difficultyChosen = true;
+                    difficulty = difficultyParsed;
                 }
                 else
                 {
@@ -105,10 +106,11 @@ internal class MenuSystem
             if (
                 Enum.TryParse<MenuEnum.Operator>(
                     Console.ReadLine(),
-                    out MenuEnum.Operator menuOperator
+                    out MenuEnum.Operator menuOperatorParsed
                 )
             )
             {
+                menuOperator = menuOperatorParsed;
                 showMenu = false;
             }
             else
