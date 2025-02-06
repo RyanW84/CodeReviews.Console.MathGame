@@ -1,4 +1,36 @@
-﻿namespace MathGame;
+using System.Diagnostics.Contracts;
+using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
+using MathGame.RyanW84;
+using static MathGame.RyanW84.DifficultyEnum;
+using static MathGame.RyanW84.GameLogic;
+using static MathGame.RyanW84.MenuEnum;
+
+namespace MathGame.RyanW84;
+
+public static class DifficultyEnum
+{
+    public enum Difficulty
+    {
+        Easy = 1,
+        Medium = 2,
+        Hard = 3,
+    }
+}
+
+public static class MenuEnum
+{
+    public enum Operator
+    {
+        Addition = 1,
+        Subtraction = 2,
+        Multiplication = 3,
+        Division = 4,
+        Random = 5,
+        Exit = 6,
+    }
+}
 
 internal class MenuSystem
 {
@@ -6,110 +38,86 @@ internal class MenuSystem
     public static int yMaxValue;
     public static bool showMenu = true;
     public static string optionChosen = "";
-    public static string divider = "*********************************";
+    public static string divider = "***********************************";
+    public static int difficultyInput = 0;
+    public static int menuInput = 0;
+    public static string name;
+    public static bool difficultyChosen = false;
+    public static string dateTimeStamp = DateTime.Now.ToString();
+    public static DifficultyEnum.Difficulty difficulty;
+    public static MenuEnum.Operator menuOperator;
 
     public static void Intro()
     {
-        int difficultyMode = 0;
-
-        Console.WriteLine(DateTime.Now.ToString());
-
+        Console.WriteLine(dateTimeStamp);
         Console.WriteLine();
         Console.WriteLine(divider);
         Console.WriteLine("\tMaths Game + - * /");
         Console.WriteLine(divider);
         Console.WriteLine();
-
-        Console.WriteLine("Please tell  me your name: ");
-        string name = Console.ReadLine().Trim();
-        Console.WriteLine($"Welcome: {name}");
-
-        do
-        {
-            Console.WriteLine(
-                "\nPlease choose your difficulty: "
-                    + "\n1 - Easy (Double Digit Sums)"
-                    + "\n2 - Medium (Triple Digit Sums"
-                    + "\n3 - Hard (Quadruple Digit Sums"
-            );
-
-            difficultyMode = int.Parse(Console.ReadLine());
-
-            if (difficultyMode == 1)
-            {
-                xMaxValue = 10;
-                yMaxValue = 10;
-            }
-            else if (difficultyMode == 2)
-            {
-                xMaxValue = 100;
-                yMaxValue = 100;
-            }
-            else if (difficultyMode == 3)
-            {
-                xMaxValue = 1000;
-                yMaxValue = 1000;
-            }
-        } while (difficultyMode == 0);
     }
 
-    public static void Menu()
+    public static string GetName()
     {
-        Console.Clear();
-        Console.WriteLine(
-            "\n\n*** Menu ***\n\n"
-                + "A: for Addition\n"
-                + "B: for Subtraction\n"
-                + "C: for Multiplication\n"
-                + "D: for Division\n"
-                + "E: for Random\n"
-                + "F: for Score History\n"
-                + "X: to Exit"
-        );
+        Console.WriteLine("Please tell  me your name: ");
+        MenuSystem.name = Console.ReadLine().Trim();
+        Console.WriteLine($"\nWelcome: {name}");
+        return name;
+    }
 
-        Console.Write("\nPlease enter a Menu Choice: ");
-        string input = Console.ReadLine().Trim().ToUpper();
-
-        do
+    public static void GetDifficulty()
+    {
+        while (difficultyChosen == false)
         {
-            switch (input)
             {
-                case "A":
-                    optionChosen = "Addition"; // idea: generate dynamically called methods based on the menu choice.
-                    MathGame.GameLogic.Arithmetic(optionChosen);
-                    break;
-                case "B":
-                    optionChosen = "Subtraction";
-                    MathGame.GameLogic.Arithmetic(optionChosen);
-                    break;
-                case "C":
-                    optionChosen = "Multiplication";
-                    MathGame.GameLogic.Arithmetic(optionChosen);
-                    break;
-                case "D":
-                    optionChosen = "Division";
-                    MathGame.GameLogic.Arithmetic(optionChosen);
-                    break;
-                case "E":
-                    optionChosen = "Random";
-                    MathGame.GameLogic.Arithmetic(optionChosen);
-                    break;
-                case "F":
-                    optionChosen = "Score History";
-                    MathGame.ScoreKeeper.TotalScore(optionChosen);
-                    break;
-                case "X":
-                    showMenu = false;
-                    continue;
-
-                default:
-                    Console.Write("Please Enter a valid input: ");
-
-                    break;
+                Console.WriteLine("\nPlease choose your difficulty:\n");
+                foreach (var value in Enum.GetValues(typeof(DifficultyEnum.Difficulty)))
+                {
+                    Console.WriteLine($"{value} {(int)value}");
+                }
+                if (
+                    Enum.TryParse<DifficultyEnum.Difficulty>(
+                        Console.ReadLine(),
+                        out DifficultyEnum.Difficulty difficulty
+                    )
+                )
+                {
+                    difficultyChosen = true;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid number: ");
+                }
             }
-        } while (showMenu == true);
+        }
+    }
 
-        Console.WriteLine("\nThank you for playing, Goodbye!");
-        Console.ReadLine();
+    public static void GetOperator()
+    {
+        while (showMenu == true)
+        {
+            Console.WriteLine("\nPlease choose your challenge:\n");
+            foreach (var value in Enum.GetValues(typeof(MenuEnum.Operator)))
+            {
+                Console.WriteLine($"{value} {(int)value}");
+            }
+
+            if (
+                Enum.TryParse<MenuEnum.Operator>(
+                    Console.ReadLine(),
+                    out MenuEnum.Operator menuOperator
+                )
+            )
+            {
+                showMenu = false;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid number: ");
+                showMenu = true;
+            }
+
+            GameLogic.Arithmetic(difficulty, menuOperator);
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace MathGame
+namespace MathGame.RyanW84
 {
     public class ScoreKeeper
     {
@@ -22,7 +22,6 @@
             Console.WriteLine("\nPress any key to return to the Menu");
             Console.ReadLine();
             Console.Clear();
-            MathGame.MenuSystem.Menu();
         }
     }
 }

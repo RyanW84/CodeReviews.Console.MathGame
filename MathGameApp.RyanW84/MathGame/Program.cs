@@ -1,25 +1,18 @@
-﻿/* Math Game Requirements:
- *
- * You need to create a Math game containing the 4 basic operations - DONE
- *
- * The divisions should result on INTEGERS ONLY and dividends should go from 0 to 100.
- * Example: Your app shouldn't present the division 7/2 to the user, since it doesn't result in an integer.
- *
- * Users should be presented with a menu to choose an operation - DONE
- *
- * You should record previous games in a List and there should be an option in the menu for the user to visualize a history of previous games - DONE
- *
- * You don't need to record results on a database. Once the program is closed the results will be deleted.
- */
+using static MathGame.RyanW84.DifficultyEnum;
+using static MathGame.RyanW84.GameLogic;
+using static MathGame.RyanW84.MenuEnum;
+using static MathGame.RyanW84.MenuSystem;
 
-
-namespace MathGame;
+namespace MathGame.RyanW84;
 
 internal class Program
 {
     static void Main(string[] args)
     {
-        MathGame.MenuSystem.Intro();
-        MathGame.MenuSystem.Menu();
+        MenuSystem.Intro();
+        MenuSystem.GetName();
+        MenuSystem.GetDifficulty();
+        MenuSystem.GetOperator();
+        //MathGame.RyanW84.GameLogic.Arithmetic(difficulty, menuOperator);
     }
 }
