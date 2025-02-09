@@ -1,0 +1,17 @@
+0000000000000000000000000000000000000000 f17bd55fb8d3c06f07a645e10b596e7ceb8b1c28 Ryan W <ryanweavers@gmail.com> 1738101092 +0000	clone: from https://github.com/TheCSharpAcademy/CodeReviews.Console.MathGame.git
+f17bd55fb8d3c06f07a645e10b596e7ceb8b1c28 6d9eeef6327865c78d3ecd85f9df83716b7500d2 Ryan W <ryanweavers@gmail.com> 1738101802 +0000	commit: MathGamev1
+6d9eeef6327865c78d3ecd85f9df83716b7500d2 a7c034a959b0492a54f1eb51e3884b54b8f5f107 Ryan W <ryanweavers@gmail.com> 1738102187 +0000	commit: fixed codacy issues
+a7c034a959b0492a54f1eb51e3884b54b8f5f107 14bfc6133d51cca1c8fcf08bde8f94002ce41cdb Ryan W <ryanweavers@gmail.com> 1738102660 +0000	commit: fixed codacy issues 2
+14bfc6133d51cca1c8fcf08bde8f94002ce41cdb 3ebc63bbc09c28cd347bcf50fecaa7cc8b06d123 Ryan W <ryanweavers@gmail.com> 1738852113 +0000	commit: refactoring
+3ebc63bbc09c28cd347bcf50fecaa7cc8b06d123 430a3b94eeec6e214abd9620984865eeffe29bc0 Ryan W <ryanweavers@gmail.com> 1738852190 +0000	commit: Really stuck
+430a3b94eeec6e214abd9620984865eeffe29bc0 f35bff7fce52142c384ff5582a5739645eda3138 Ryan W <ryanweavers@gmail.com> 1738853261 +0000	commit: commit again
+f35bff7fce52142c384ff5582a5739645eda3138 ff9a9de7bdc9001b817bc18b9692804695518ed9 Ryan W <ryanweavers@gmail.com> 1738853356 +0000	commit: stuck
+ff9a9de7bdc9001b817bc18b9692804695518ed9 0105efbc2d5a4f80a1606a0694b2d303a4294292 Ryan W <ryanweavers@gmail.com> 1738873721 +0000	commit: Enum issue fixed
+0105efbc2d5a4f80a1606a0694b2d303a4294292 341ec7fb34cd00a7d72ab7915a1ecf2c8bb2668f Ryan W <ryanweavers@gmail.com> 1738877085 +0000	commit: Codacy improvements made
+341ec7fb34cd00a7d72ab7915a1ecf2c8bb2668f e020bf4748aa70394b60e1f5ce3470896dbb94a0 Ryan W <ryanweavers@gmail.com> 1738877287 +0000	commit: Codacy issues fixed
+e020bf4748aa70394b60e1f5ce3470896dbb94a0 25c909575d7fecdb2b90f594fba138f776c778b1 Ryan W <ryanweavers@gmail.com> 1739134296 +0000	commit (amend): I believe I have fixed the following issues:
+25c909575d7fecdb2b90f594fba138f776c778b1 7f8061c43e4ff5a385ee5bcd4cae6d4cc05f20b7 Ryan W <ryanweavers@gmail.com> 1739134365 +0000	pull --progress --no-edit --no-stat --recurse-submodules=no origin: Merge made by the 'ort' strategy.
+7f8061c43e4ff5a385ee5bcd4cae6d4cc05f20b7 675df2c27dae2e6f684ef39f3e0a26c2e0ffbab7 Ryan W <ryanweavers@gmail.com> 1739134625 +0000	commit (amend): Removed unnecessary using Merge branch 'main' of https://github.com/RyanW84/CodeReviews.Console.MathGame
+675df2c27dae2e6f684ef39f3e0a26c2e0ffbab7 a19dee4c60883d75cae9cc9707646fff7bc5871e Ryan W <ryanweavers@gmail.com> 1739134636 +0000	pull --progress --no-edit --no-stat --recurse-submodules=no origin: Merge made by the 'ort' strategy.
+a19dee4c60883d75cae9cc9707646fff7bc5871e 37a438686aa424224575c2fa6b24a2d425265532 Ryan W <ryanweavers@gmail.com> 1739134705 +0000	commit (amend): I believe I have fixed the following issues:
+37a438686aa424224575c2fa6b24a2d425265532 ccedb603b8502e5adc015389f863f71403438da8 Ryan W <ryanweavers@gmail.com> 1739134711 +0000	pull --progress --no-edit --no-stat --recurse-submodules=no origin: Merge made by the 'ort' strategy.
