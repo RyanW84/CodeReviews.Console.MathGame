@@ -1,6 +1,6 @@
 Math Game
 
-A fune little Console based Math Game.
+It is a fun little Console based Math Game.
 
 This implements some key learning points for me including:
 1) Enums
@@ -10,5 +10,5 @@ This implements some key learning points for me including:
 5) Methods
 6) Classes
 7) DRY principle (far from perfect but a significant improvement)
-8) Refactoring to remove the ability to divided by 0 a
+8) Refactoring to remove the ability to divide by 0 
 9) Refactoring to always present the large number first in a division
