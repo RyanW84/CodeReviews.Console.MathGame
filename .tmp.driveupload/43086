@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PendingCommit>
-  <CommitComment>I believe I have fixed the following issues:
-Division by Zero eliminated
-Tuple swap for X and Y so that the larger number is always presented first in an addition
-Menu Bugs fixed
-Random mode added
-ScoreBoard addedCodacy issues fixed
-
-Tidied up usings
-
-Tidied up setting variables to 0 unnecessarily
-
-removed large chunks of commented out code</CommitComment>
+  <CommitComment>Removed unnecessary using Merge branch 'main' of https://github.com/RyanW84/CodeReviews.Console.MathGame</CommitComment>
   <PinnedBranches />
   <PublishPrompt Enabled="True" />
   <ActiveAccountPrompt Enabled="True" />

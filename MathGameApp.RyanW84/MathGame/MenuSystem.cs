@@ -1,8 +1,3 @@
-using MathGame.RyanW84;
-using static MathGame.RyanW84.DifficultyEnum;
-using static MathGame.RyanW84.GameLogic;
-using static MathGame.RyanW84.MenuEnum;
-
 namespace MathGame.RyanW84;
 
 public static class DifficultyEnum
