@@ -14,7 +14,7 @@ public class ScoreKeeper
 
         Console.Clear();
         Console.WriteLine(divider);
-        Console.WriteLine($"\t\t{menuOperator}");
+        Console.WriteLine($"\t\t      {menuOperator}");
         Console.WriteLine(divider);
 
         totalScore = scoreList.Sum();

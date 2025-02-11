@@ -67,25 +67,33 @@ public class GameLogic()
             case MenuEnum.Operator.Division:
                 bool zeroCheck = false;
                 arithmeticOperator = '/';
+                x = random.Next(1, MenuSystem.xMaxValue);
+                y = random.Next(1, MenuSystem.yMaxValue);
+                float floatSum;
 
                 while (!zeroCheck) // only select random numbers that generate a whole number result on division
                 {
-                    x = random.Next(0, MenuSystem.xMaxValue);
-                    y = random.Next(0, MenuSystem.yMaxValue);
-                    if (y == 0 || x == 0)
-                    {
-                        x = random.Next(0, MenuSystem.xMaxValue);
-                        y = random.Next(0, MenuSystem.yMaxValue);
-                    }
                     if (y > x)
                     {
                         (x, y) = (y, x);
+                        floatSum = x % y;
+                        Console.WriteLine(
+                            $"\n The modulus of this {x} and {y} is {floatSum} therefore they have not been chosen"
+                        );
                     }
-
-                    zeroCheck = true;
+                    else if (x % y != 0)
+                    {
+                        x = random.Next(1, MenuSystem.xMaxValue);
+                        y = random.Next(1, MenuSystem.yMaxValue);
+                    }
+                    else
+                    {
+                        zeroCheck = true;
+                    }
                 }
                 sum = x / y;
                 break;
+
             case MenuEnum.Operator.Random:
                 Console.Clear();
                 Console.WriteLine("Randomly choosing a Maths challenge"); // working on random selection
@@ -123,6 +131,8 @@ public class GameLogic()
                 Console.WriteLine("\nWrong answer, new question chosen");
                 MathGame.RyanW84.ScoreKeeper.scoreList.Add(-1);
                 correctAnswer = false;
+                x = random.Next(1, MenuSystem.xMaxValue);
+                y = random.Next(1, MenuSystem.yMaxValue);
 
                 Console.Write("\nIf you would prefer to exit to the menu, please enter M now: ");
                 escapeToMenu = Console.ReadLine().Trim().ToUpper();
